@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- Ella Flaherty, This is a basic tool for doodling on the web! Feel free to make mistakes because you can erase and undo, yay! -->
+<html>
+  <head>
+    <title>Drawing App</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #ffffff;
+        font-family: cursive;
+      }
+      button {
+        cursor: pointer;
+        margin-top:15px;
+        font-family: cursive ;
+        border-radius: 1px;
+
+      }
+
+      #canvas-container {
+        text-align: center;
+      }
+      input{
+        cursor: pointer;
+      }
+
+      #canvas {
+        border: 1px solid black;
+        cursor: pointer ;
+      }
+
+      #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 25px;
+      }
+
+      #colorOptions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .colorOption {
+        display: flex;
+        align-items: center;
+      }
+
+      .colorOption input[type="radio"] {
+        margin-right: 5px;
+      }
+
+      #erase {
+        background-color: transparent;
+        border: none;
+        color: black;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+      }
+
+      #erase.active {
+        color: red;
+      }
+
+      #undo {
+        background-color: transparent;
+        border: none;
+        color: black;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+      }
+     
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/28a29d9e14.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="canvas-container">
+      <h1>Drawing Is Fun</h1>
+      <div id="controls">
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <button id="clear">Reset</button>
+        <button id="erase"><i class="fas fa-eraser"></i></button>
+
+        <button id="undo"><i class="fas fa-undo"></i></button>
+        <div id="colorOptions">
+          <div class="colorOption">
+            <input
+              type="radio"
+              name="color"
+              id="colorBlack"
+              value="black"
+              checked
+            />
+            <label for="colorBlack">Black</label>
+          </div>
+          <div class="colorOption">
+            <input type="radio" name="color" id="colorCyan" value="cyan" />
+            <label for="colorCyan" style="color: cyan">Cyan</label>
+          </div>
+          <div class="colorOption">
+            <input
+              type="radio"
+              name="color"
+              id="colorMagenta"
+              value="magenta"
+            />
+            <label for="colorMagenta" style="color: magenta">Magenta</label>
+          </div>
+          <div class="colorOption">
+            <input type="radio" name="color" id="colorGreen" value="green" />
+            <label for="colorGreen" style="color: green">Green</label>
+          </div>
+        </div>
+        <div id="opacityLabel">
+          <label for="opacityRange">Opacity:</label>
+          <input
+            type="range"
+            id="opacityRange"
+            min="0"
+            max="1"
+            step="0.1"
+            value="1"
+          />
+        </div>
+        <div id="sizeLabel">
+          <label for="sizeRange">Brush Size:</label>
+          <input
+            type="range"
+            id="sizeRange"
+            min="1"
+            max="20"
+            step="1"
+            value="5"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
